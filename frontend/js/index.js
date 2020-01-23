@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/api/v1";
+const BASE_URL = "https://untitled-loop-game-backend.herokuapp.com/api/v1";
 const NOTES_URL = BASE_URL + "/notes";
 const NOTE_URL = id => NOTES_URL + "/" + id;
 const LOOPS_URL = BASE_URL + `/loops`;
