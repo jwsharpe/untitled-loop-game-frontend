@@ -18,7 +18,7 @@ window.onload = function() {
     "synth_drum"
   ];
 
-  const soundfontURL = "fatboy/";
+  const soundfontURL = "FatBoy/";
 
   MIDI.loadPlugin({
     soundfontUrl: soundfontURL,
