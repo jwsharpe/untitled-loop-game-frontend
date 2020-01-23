@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  margin: 0;
+  font-size: 1rem;
+
+  font-family: "Fascinate Inline", cursive;
+}
+
+#main {
+  width: 70vw;
+  height: 100vh;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70vh 1fr;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+#side {
+  width: 30vw;
+  height: 100vh;
+  display: grid;
+  margin: 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 40vh;
+  background: #fff;
+}

@@ -1,0 +1,13 @@
+button:hover {
+  opacity: 1;
+}
+button {
+  outline: none;
+  padding: none;
+  cursor: pointer;
+  border: none;
+}
+
+button:active {
+  outline: none;
+}

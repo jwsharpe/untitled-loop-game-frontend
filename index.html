@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee+Shade|Fascinate+Inline&display=swap"
+      rel="stylesheet"
+    />
+    <!-- polyfill -->
+    <script src="MIDI.js/inc/shim/Base64.js" type="text/javascript"></script>
+    <script
+      src="MIDI.js/inc/shim/Base64binary.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="MIDI.js/inc/shim/WebAudioAPI.js"
+      type="text/javascript"
+    ></script>
+    <!-- midi.js package -->
+    <script
+      src="MIDI.js/js/midi/audioDetect.js"
+      type="text/javascript"
+    ></script>
+    <script src="MIDI.js/js/midi/gm.js" type="text/javascript"></script>
+    <script src="MIDI.js/js/midi/loader.js" type="text/javascript"></script>
+    <script
+      src="MIDI.js/js/midi/plugin.audiotag.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="MIDI.js/js/midi/plugin.webaudio.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="MIDI.js/js/midi/plugin.webmidi.js"
+      type="text/javascript"
+    ></script>
+    <!-- utils -->
+    <script
+      src="MIDI.js/js/util/dom_request_xhr.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="MIDI.js/js/util/dom_request_script.js"
+      type="text/javascript"
+    ></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="frontend/css/index.css" />
+    <link rel="stylesheet" href="frontend/css/wrapper.css" />
+    <link rel="stylesheet" href="frontend/css/looper.css" />
+    <link rel="stylesheet" href="frontend/css/sidebar.css" />
+    <link rel="stylesheet" href="frontend/css/controls.css" />
+    <link rel="stylesheet" href="frontend/css/instruments.css" />
+    <link rel="stylesheet" href="frontend/css/modal.css" />
+
+    <!-- Load midi player -->
+    <script src="frontend/js/loadMIDIPlayer.js" defer></script>
+
+    <!-- loops brother -->
+    <script src="frontend/js/loop.js" defer></script>
+
+    <!-- handles recordings -->
+    <script src="frontend/js/recording.js" defer></script>
+
+    <!-- create-form controls -->
+    <script src="frontend/js/sidebar.js" defer></script>
+
+    <!-- form controls -->
+    <script src="frontend/js/controls.js" defer></script>
+
+    <!-- Load scripts to render notes -->
+    <script src="frontend/js/notes.js" defer></script>
+
+    <!-- Load script to create looper -->
+    <script src="frontend/js/looper.js" defer></script>
+
+    <!-- Load script to Manage Instruments -->
+    <script src="frontend/js/instruments.js" defer></script>
+
+    <!-- render stuff to page-->
+    <script src="frontend/js/index.js" defer></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="i-wrapper">
+        <ul id="instruments">
+          <li data-channel="0" id="piano">Piano</li>
+          <li data-channel="1" id="acoustic-guitar">A. Guitar</li>
+          <li data-channel="2" id="acoustic-bass">A. Bass</li>
+          <li data-channel="3" id="electric-bass">E. Bass</li>
+
+          <li data-channel="4" id="electric-piano">E Piano</li>
+          <li data-channel="5" id="violin">Violin</li>
+          <li data-channel="6" id="tuba">Tuba</li>
+          <li data-channel="7" id="clarinet">Clarinet</li>
+
+          <li data-channel="8" id="perc-organ">Perc. Organ</li>
+          <li data-channel="9" id="harp">Harp</li>
+          <li data-channel="10" id="ocarina">Ocarina</li>
+          <li data-channel="11" id="music-box">Music Box</li>
+
+          <li data-channel="12" id="square">Square Lead</li>
+          <li data-channel="13" id="saw">Saw Lead</li>
+          <li data-channel="14" id="synth-bass">Synth Bass</li>
+          <li data-channel="15" id="drums">Drums</li>
+        </ul>
+      </div>
+      <div id="looper">
+        <div id="cursor"></div>
+      </div>
+    </div>
+
+    <div id="controls-modal" class="modal">
+      <div class="modal-content">
+        <div id="loop-logo">
+          <div id="modal-logo-container">
+            <img
+              id="modal-logo"
+              src="frontend/honk/loopgame.png"
+              alt="Untitled Loop Game"
+            />
+          </div>
+          <h1 style="color: white">Untitled Loop <br />Game</h1>
+        </div>
+        <div id="keyboard-layout">
+          <img
+            id="layout"
+            src="frontend/images/keyboardlayout.png"
+            alt="Keyboard Layout"
+          />
+        </div>
+        <div id="additional-controls">
+          <div id="show-octave-controls">
+            <div>
+              <img src="frontend/images/shift.png" alt="Shift" /><span
+                >Octave Up</span
+              >
+            </div>
+            <div>
+              <img src="frontend/images/control.png" alt="Control" /><span
+                >Octave Down</span
+              >
+            </div>
+          </div>
+          <div id="show-volume-controls">
+            <img src="frontend/images/swipe.png" alt="Swipe" />
+            <p>Rec Volume 'Scroll'</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="side">
+      <div id="sidebar">
+        <div id="title">
+          <img src="frontend/honk/loopgame.png" alt="Untitled Loop Game" />
+
+          <h1>
+            Untitled Loop Game
+          </h1>
+        </div>
+
+        <form id="create-form" class="tooltip">
+          <input type="text" name="name" placeholder="New Beat" />
+          <span class="tooltiptextform">Enter Text</span>
+          <button>+</button>
+        </form>
+        <ul id="loops"></ul>
+      </div>
+
+      <div id="controls">
+        <div id="octave-controls">
+          <span>Octave <span id="octave">0</span></span>
+
+          <div id="octave-buttons">
+            <button id="octave-down" class="tooltip" class="octave-btn">
+              -
+              <span class="tooltiptextabove">Octave Down 'Ctrl'</span>
+            </button>
+
+            <button id="octave-up" class="tooltip" class="octave-btn">
+              +
+              <span class="tooltiptextabove">Octave Up 'Shift'</span>
+            </button>
+          </div>
+        </div>
+        <div id="analog-controls">
+          <div id="volume-div" class="tooltip">
+            <span
+              >Rec Level
+              <span id="volume">50</span>
+            </span>
+            <div id="volslide" class="slidecontainer">
+              <input
+                type="range"
+                min="0"
+                max="512"
+                value="256"
+                class="slider"
+                id="volume-slider"
+              />
+            </div>
+          </div>
+          <div id="velocity-div" class="tooltip">
+            <span
+              >Velocity
+              <span id="velocity">25</span>
+            </span>
+            <div id="velslide" class="slidecontainer">
+              <input
+                type="range"
+                min="0"
+                max="64"
+                value="31"
+                class="slider"
+                id="velocity-slider"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="digital-buttons">
+          <div>
+            <button id="record-btn">Record</button>
+            <button id="undo-btn">Undo</button>
+          </div>
+          <button id="metro">Metronome</button>
+        </div>
+        <form id="update-form">
+          <div id="update-entry-div">
+            <div class="form-entry">
+              <label for="name">NAME</label>
+              <input type="text" name="name" />
+            </div>
+            <div class="form-entry">
+              <label for="BPM">BPM</label>
+              <input type="number" name="BPM" />
+            </div>
+            <div class="form-entry">
+              <label for="bars">BARS</label>
+              <input type="number" name="bars" />
+            </div>
+          </div>
+          <button>+</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="frontend/js/intro.js"></script>
+</html>

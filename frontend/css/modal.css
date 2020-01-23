@@ -1,0 +1,121 @@
+.modal {
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: #3f51b5;
+}
+
+.modal-content {
+  margin: 0.8% auto;
+  padding: 6px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 64px;
+}
+
+#modal-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270px;
+}
+#modal-logo {
+  height: 90%;
+  cursor: pointer;
+}
+
+#modal-logo:hover {
+  height: 100%;
+}
+
+#loop-logo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  user-select: none;
+}
+
+#modal-logo-container {
+  width: 270px;
+}
+
+#show-octave-controls span {
+  font-size: 1.5rem;
+  color: white;
+}
+
+#show-octave-controls div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+}
+#show-volume-controls img {
+  height: 140px;
+}
+
+#show-volume-controls p {
+  color: white;
+  font-size: 1.3rem;
+}
+
+#additional-controls {
+  top: -20;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modal-content #layout {
+  display: flex;
+  justify-content: center;
+  margin: -64px;
+  margin-left: 55px;
+}
+
+#controls-modal {
+  display: flex;
+  vertical-align: center;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal-animate {
+  transform: translate(75vw, 3vh);
+  transition: 2s;
+  animation: disappear 2s forwards;
+}
+.modal-animate-reverse {
+  animation: disappear 1s reverse;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    border-radius: 100rem;
+    display: none;
+  }
+}
+
+#modal-btn {
+  color: white;
+  position: absolute;
+  font-size: 7rem;
+  left: 95vw;
+  top: 45vh;
+  user-select: none;
+  cursor: pointer;
+}

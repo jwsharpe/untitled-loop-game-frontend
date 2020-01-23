@@ -1,0 +1,138 @@
+#i-wrapper {
+  background: #fff;
+
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+}
+
+#instruments {
+  display: grid;
+  color: #1d1d1d;
+
+  margin: 0px;
+  padding: 4px;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 100%;
+}
+
+#instruments li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  animation: shrink 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  border-radius: 4px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+#instruments li:hover {
+  animation: grow 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+@keyframes shrink {
+  100% {
+    font-size: 150%;
+
+    margin: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  0% {
+    margin: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes grow {
+  0% {
+    margin: 8px;
+  }
+  100% {
+    margin: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+#instruments li:active {
+  animation: show 0.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+@keyframes show {
+  0% {
+  }
+  100% {
+    font-size: 150%;
+
+    color: rgb(231, 231, 231);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.instrument_selected {
+  color: white !important;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#instruments #piano {
+  background: #ef5350;
+}
+#instruments #acoustic-guitar {
+  background: #ec407a;
+}
+#instruments #acoustic-bass {
+  background: #ab47bc;
+}
+#instruments #electric-bass {
+  background: #7e57c2;
+}
+
+#instruments #electric-piano {
+  background: #5c6bc0;
+}
+#instruments #violin {
+  background: #42a5f5;
+}
+#instruments #tuba {
+  background: #29b6f6;
+}
+#instruments #clarinet {
+  background: #26c6da;
+}
+
+#instruments #perc-organ {
+  background: #26a69a;
+}
+#instruments #harp {
+  background: #66bb6a;
+}
+#instruments #ocarina {
+  background: #9ccc65;
+}
+#instruments #music-box {
+  background: #d4e157;
+}
+
+#instruments #square {
+  background: #ffee58;
+}
+#instruments #saw {
+  background: #ffca28;
+}
+#instruments #synth-bass {
+  background: #ffa726;
+}
+#instruments #drums {
+  background: #ff7043;
+}

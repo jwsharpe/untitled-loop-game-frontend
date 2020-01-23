@@ -1,0 +1,11 @@
+#looper {
+  height: 30vh;
+  border-top: #bdbdbd solid 1px;
+}
+
+#cursor {
+  background: black;
+  position: absolute;
+  width: 2px;
+  height: 30vh;
+}
